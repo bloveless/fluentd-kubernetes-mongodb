@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+  fluentd:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: bloveless/fluentd:0.1.0-alpha.14
+    environment:
+      MONGODB_HOST: mongodb
+      MONGODB_USERNAME: root
+      MONGODB_DATABASE: admin
+      MONGODB_PASSWORD: 5SV2RujnUx7QME1CRc7da81Y0z
+      MONGODB_CAPPED_SIZE: 1024m
+    volumes:
+      - ./:/home/fluentd
+
+  mongodb:
+    image: mongo:4.4.4-bionic
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: 5SV2RujnUx7QME1CRc7da81Y0z
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb_data:/data/db
+
+volumes:
+  mongodb_data:
