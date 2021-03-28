@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: bloveless/fluentd:0.1.0-alpha.14
+    image: bloveless/fluentd:0.1.0
     environment:
       MONGODB_HOST: mongodb
       MONGODB_USERNAME: root

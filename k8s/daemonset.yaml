@@ -62,7 +62,7 @@ spec:
         effect: NoSchedule
       containers:
       - name: fluentd
-        image: bloveless/fluentd:0.1.0-alpha.14
+        image: bloveless/fluentd:0.1.0
         env:
         - name: "MONGODB_HOST"
           value: "192.168.4.252"
